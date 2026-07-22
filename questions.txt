@@ -1,0 +1,6 @@
+1|Arrays|Output prediction|What is the output of: int a[3] = {1,2,3}; cout << a[1];|2|system|1|0|0
+2|Math|Bug identification|What is wrong: for (int i=1; i<=n; i++) sum += i; (n can be huge)|Risk overflow without long long|system|2|0|0
+3|Sorting|Algorithm reasoning|Which sort is stable by default: quicksort or merge sort?|merge sort|system|2|0|0
+4|DP|Output prediction|Given Fibonacci recursion with memo, what's T(n) complexity?|O(n)|system|3|0|0
+5|Graphs|Bug identification|In BFS, should you mark visited when queued or when popped?|when queued|system|3|0|0
+6|Greedy|Algorithm reasoning|Is Kruskal's algorithm guaranteed to find MST if edge weights are unique?|yes|system|3|0|0

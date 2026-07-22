@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodeMate GUI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="theme-dark">
+  <div class="app">
+    <header>
+      <div class="logo">CodeMate</div>
+      <div class="subtitle">Adaptive Competitive Programming Arena</div>
+      <div class="theme-control">
+        <label for="themeMode">Theme:</label>
+        <select id="themeMode">
+          <option value="dark">Dark</option>
+          <option value="light">Light</option>
+        </select>
+      </div>
+    </header>
+
+    <nav class="tabs">
+      <button data-page="home" class="tab active">Home</button>
+      <button data-page="login" class="tab">Login</button>
+      <button data-page="register" class="tab">Register</button>
+      <button data-page="dashboard" class="tab">Dashboard</button>
+      <button data-page="race" class="tab">Race Room</button>
+      <button data-page="teacher" class="tab">Teacher</button>
+      <button data-page="admin" class="tab">Admin</button>
+    </nav>
+
+    <main>
+      <section id="home" class="page active">
+        <div class="hero">
+          <div>
+            <div class="badge">CodeMate Premium</div>
+            <h1>Level Up Your Competitive Coding Journey</h1>
+            <p>Adaptive matchmaking, anti-cheat logic challenges, and race insights for students and teachers.</p>
+            <div class="hero-actions">
+              <button id="startFlow" class="primary">Start Coding</button>
+              <button class="secondary" id="viewSteps">How It Works</button>
+            </div>
+          </div>
+          <div class="hero-card">
+            <h3>Today’s Challenge</h3>
+            <p>Complete 3 logic problems and climb the leaderboard.</p>
+            <div class="stats-grid"><div><strong>92%</strong><span>Accuracy</span></div><div><strong>18</strong><span>Races</span></div></div>
+          </div>
+        </div>
+        <div class="feature-intro">
+          <h3>Built for simple, powerful practice</h3>
+          <ul>
+            <li>Register in seconds, then join your first coding match.</li>
+            <li>Match with peers at your level and track progress.</li>
+            <li>Get teacher-approved practice sets and instant insights.</li>
+            <li>Admin controls keep the community safe and fair.</li>
+          </ul>
+        </div>
+        <div class="cards-grid">
+          <article class="card"><h3>Adaptive Matchmaking</h3><p>Auto-suggest opponents with similar points and skill tier.</p><button class="secondary" data-action="dashboard">View Matches</button></article>
+          <article class="card"><h3>Anti-Cheat</h3><p>Concept challenge checks and time-based fairness verification.</p><button class="secondary" data-action="race">Run Check</button></article>
+          <article class="card"><h3>Teacher Hub</h3><p>Teachers add questions, track scores, and view class progress.</p><button class="secondary" data-action="dashboard">Teacher View</button></article>
+          <article class="card"><h3>Admin Control</h3><p>Approve new instructors and manage quizzes from one panel.</p><button class="secondary" data-action="login">Admin Login</button></article>
+        </div>
+      </section>
+
+      <section id="login" class="page">
+        <h2>Login</h2>
+        <label>Username <input id="loginUser" /></label>
+        <label>Password <input id="loginPass" type="password" /></label>
+        <button id="forgotBtn" class="primary">Forgot Password</button>
+        <button id="loginBtn" class="primary">Login</button>
+        <div id="loginMsg" class="msg"></div>
+      </section>
+
+      <section id="register" class="page">
+        <h2>Register</h2>
+        <label>Username <input id="regUser" /></label>
+        <label>Password <input id="regPass" type="password" /></label>
+        <label id="teacherTopicLabel" style="display:none;">Teaching Topic <input id="regTeachTopic" /></label>
+        <label>Enrollment ID <input id="regEnroll" /></label>
+        <label>Security Answer <input id="regFavAlgo" /></label>
+        <label>Role <select id="regRole"><option value="student">student</option><option value="teacher">teacher</option></select></label>
+        <button id="regBtn" class="primary">Create Account</button>
+        <div id="regMsg" class="msg"></div>
+      </section>
+
+      <section id="dashboard" class="page">
+        <h2>Dashboard</h2>
+        <div class="panel user-card">
+          <div id="profile"></div>
+        </div>
+        <div class="flex-row">
+          <div class="panel">
+            <h3>Leaderboard</h3>
+            <div id="leaderboard"></div>
+          </div>
+          <div class="panel">
+            <h3>Topic Heatmap</h3>
+            <div id="heatmap"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="race" class="page">
+        <h2>Race Room</h2>
+        <p>Run competitive races with friends or quick matchmaking. Choose same topic to compete.</p>
+        <label>Topic <input id="raceTopic" placeholder="e.g. Arrays" /></label>
+        <label>Partner username (optional) <input id="racePartner" placeholder="optional" /></label>
+        <button id="runRace" class="primary">Run Race</button>
+        <div id="raceOutput"></div>
+        <div class="msg">Data stored in C++ files: <code>users.txt</code>, <code>questions.txt</code>, <code>races.txt</code></div>
+      </section>
+
+      <section id="teacher" class="page">
+        <h2>Teacher Hub</h2>
+        <div class="panel">
+          <h3>Add Lesson Question</h3>
+          <label>Topic <input id="teacherTopic" /></label>
+          <label>Type <select id="teacherType"><option>Output prediction</option><option>Bug identification</option><option>Algorithm reasoning</option></select></label>
+          <label>Prompt <textarea id="teacherPrompt" rows="3"></textarea></label>
+          <label>Answer <input id="teacherAnswer" /></label>
+          <label>Difficulty <select id="teacherDifficulty"><option>1</option><option>2</option><option>3</option></select></label>
+          <button id="teacherAdd" class="primary">Add Question</button>
+          <div id="teacherMsg" class="msg"></div>
+        </div>
+        <div class="panel">
+          <h3>Your Added Questions</h3>
+          <div id="teacherQuestions"></div>
+        </div>
+      </section>
+
+      <section id="admin" class="page">
+        <h2>Admin Panel</h2>
+        <div class="panel">
+          <h3>Pending Teacher Approvals</h3>
+          <div id="adminApprovals"></div>
+        </div>
+      </section>
+
+    </main>
+    <footer>CodeMate &copy; 2026 — Built for team-based competitive learning.</footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

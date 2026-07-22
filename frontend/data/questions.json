@@ -1,0 +1,8 @@
+{"questions":[
+  {"id": 1,"topic":"Arrays","type":"Output prediction","prompt":"What is the output of: int a[3] = {1,2,3}; cout << a[1];","difficulty":1,"author":"system"},
+  {"id": 2,"topic":"Math","type":"Bug identification","prompt":"What is wrong: for (int i=1; i<=n; i++) sum += i; (n can be huge)","difficulty":2,"author":"system"},
+  {"id": 3,"topic":"Sorting","type":"Algorithm reasoning","prompt":"Which sort is stable by default: quicksort or merge sort?","difficulty":2,"author":"system"},
+  {"id": 4,"topic":"DP","type":"Output prediction","prompt":"Given Fibonacci recursion with memo, what's T(n) complexity?","difficulty":3,"author":"system"},
+  {"id": 5,"topic":"Graphs","type":"Bug identification","prompt":"In BFS, should you mark visited when queued or when popped?","difficulty":3,"author":"system"},
+  {"id": 6,"topic":"Greedy","type":"Algorithm reasoning","prompt":"Is Kruskal's algorithm guaranteed to find MST if edge weights are unique?","difficulty":3,"author":"system"}
+]}
